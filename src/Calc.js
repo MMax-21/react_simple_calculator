@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip'
 import './Calc.css';
 
 
@@ -22,6 +23,11 @@ let calculateDiv = function(a, b){
         return 'infinity';
     }
 }
+
+let calculateExp = function(a, b){
+    return Math.pow(a, b);
+}
+
 
 function checkValue(value) {
 // if field is empty, setting it to 0
@@ -69,8 +75,8 @@ class Calc extends React.Component {
         this.onMathAction = this.onMathAction.bind(this);
         this.onResult = this.onResult.bind(this);
         this.onReset = this.onReset.bind(this);
-        this.allowedMathActions = ["+", "-", "*", "/"];
-        this.calculations = {'+': calculateSum, '-': calculateDiff, '*': calculateMult, '/': calculateDiv};
+        this.allowedMathActions = ["+", "-", "*", "/", "^"];
+        this.calculations = {'+': calculateSum, '-': calculateDiff, '*': calculateMult, '/': calculateDiv, '^': calculateExp};
     }
 
     onChangeInput(event) {
@@ -96,7 +102,7 @@ class Calc extends React.Component {
         if (calcResult === 'infinity') {    
             calcResult = 'Деление на 0';
         }
-        else if (calcResult % 1 != 0) calcResult = Math.round(calcResult * 10000) / 10000;
+        else if (calcResult % 1 !== 0) calcResult = Math.round(calcResult * 10000) / 10000;
         this.setState({result : calcResult});
     }
 
@@ -139,22 +145,26 @@ return result;
                 </form>
                 <div className="calculator__keyboard">
                     <div className="row">
-                        <button name="+" className="btn" onClick={this.onMathAction}>+</button>
-                        <button name="-" className="btn" onClick={this.onMathAction}>-</button>
+                        <button name="+" className="btn" onClick={this.onMathAction} data-tip="Сумма">+</button>
+                        <button name="-" className="btn" onClick={this.onMathAction} data-tip="Разность">-</button>
                     </div>
                     <div className="row">
-                        <button name="*" className="btn" onClick={this.onMathAction}>*</button>
-                        <button name="/" className="btn" onClick={this.onMathAction}>/</button>
+                        <button name="*" className="btn" onClick={this.onMathAction} data-tip="Произведение">*</button>
+                        <button name="/" className="btn" onClick={this.onMathAction} data-tip="Частное">/</button>
+                    </div>
+                    <div className="row">
+                        <button name="^" className="btn" onClick={this.onMathAction} data-tip="Возведение в степень">^</button>
                     </div>
                     <div className="row row-result" onClick={this.onResult}>
-                        <button>=</button>
+                        <button data-tip="Вычисление">=</button>
                     </div>
                     <div className="row row-reset" onClick={this.onReset}>
-                        <button>C</button>
+                        <button data-tip="Сброс">C</button>
                     </div>
                 </div>
+                <ReactTooltip />
             </div>
-        );
+            );
       }
 
 }
