@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Digital-7';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./font/digital-7.ttf);
+}
+/*
+src: url(https://fonts.gstatic.com/s/orbitron/v12/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWgz.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+*/
+
 body {
   margin: 0;
   padding: 0;
@@ -25,7 +36,7 @@ li {
   align-items: center;
   margin: auto;
   width: 400px;
-
+  font-family: 'Digital-7';
 }
 
 .calculator form {
@@ -39,21 +50,20 @@ li {
 .calculator__inputs input {
   border: none;
   text-align: right;
-  font-size: 40px;
+  font-size: 60px;
   width: 260px;
+  font-family: 'Digital-7';
 }
 
 .calculator__result {
   border-top: 3px solid rgb(189,189,189);
-  font-size: 40px;
+  font-size: 60px;
   text-align: right;
   padding-top: 10px;
-
 }
 
 .calculator__keyboard {
   padding-top: 10px;
-
 }
 
 .row {
@@ -72,6 +82,7 @@ li {
   outline: none;
   cursor: pointer;
   transition: all .3s;
+  font-family: 'Digital-7';
 }
 
 .row button:hover {
@@ -87,3 +98,4 @@ li {
 .row-reset button {
   width: 100%;
 }
+

@@ -135,7 +135,7 @@ return result;
             <div className="calculator">
                 <form>
                     <div className="calculator__inputs">
-                        <input name="firstValue"  type="text" placeholder="0"
+                        <input name="firstValue"  type="text" placeholder="0" 
                                         value={this.state.firstValue} onChange={this.onChangeInput}/>
                         <div className="selectedAction">{this.state.mathAction}</div>
                         <input name="secondValue"  type="text" placeholder="0"
